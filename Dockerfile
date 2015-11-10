@@ -6,7 +6,7 @@ RUN apt-get update &&\
     apt-get install -y nodejs npm && \
     npm install -g frisby && \
     npm install -g grunt-cli && \
-	ln -s /usr/bin/nodejs /usr/local/bin/node
+    ln -s /usr/bin/nodejs /usr/local/bin/node
 
 
 
