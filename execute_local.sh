@@ -1,0 +1,2 @@
+
+docker run -it --rm --name db --link application:application -v /var/run/docker.sock:/var/run/docker.sock -v $(which docker):/usr/bin/docker -v /c/Users/{path}/test_orchestrator:/test_orchestrator krisrr3/testenvironments:ora11g_node_test_orc_v4 grunt --gruntfile /test_orchestrator/Gruntfile.js --force

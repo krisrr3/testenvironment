@@ -1,0 +1,11 @@
+{
+  "name": "Test_Orchestrator",
+  "version": "0.1.0",
+  "devDependencies": {
+    "frisby": "^0.8.5",
+    "grunt": "^0.4.5",
+    "grunt-shell": "^1.1.2",
+    "grunt-cli": "^0.1.13",
+    "jasmine-node": "^1.14.5"
+  }
+}

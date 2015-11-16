@@ -1,0 +1,40 @@
+--------------------------------------------------------
+--  DDL for Table SIMPLETABLE
+--------------------------------------------------------
+  BEGIN
+    EXECUTE IMMEDIATE 'DROP TABLE APPLICATION_USER.SIMPLETABLE';
+  EXCEPTION
+    WHEN OTHERS THEN NULL;
+  END;
+  /
+  CREATE TABLE "APPLICATION_USER"."SIMPLETABLE" 
+   ("USER_ID" VARCHAR2(100 BYTE), 
+	"NAME" VARCHAR2(100 BYTE), 
+	"TEL" VARCHAR2(100 BYTE), 
+	"MOBILE" VARCHAR2(100 BYTE)
+	) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+ 
+--------------------------------------------------------
+--  DDL for sequence
+--------------------------------------------------------
+CREATE SEQUENCE  "SIMPLETABLE_USER_ID_SEQ"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 3147 NOCACHE  NOORDER  NOCYCLE ;
+
+--------------------------------------------------------
+--  DDL for Trigger SIMPLETABLE_IDTRIGGER
+--------------------------------------------------------
+  CREATE OR REPLACE TRIGGER "APPLICATION_USER"."SIMPLETABLE_IDTRIGGER" 
+before insert on APPLICATION_USER.SIMPLETABLE
+for each row
+   begin
+     select simpletable_user_id_seq.nextval into :new.USER_ID from dual;
+end;
+/
+ALTER TRIGGER "APPLICATION_USER"."SIMPLETABLE_IDTRIGGER" ENABLE;
+/
+quit;
